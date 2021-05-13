@@ -75,7 +75,7 @@ node <- R6::R6Class(
     validators = NULL,
 
     vis_params = NULL,
-
+    
     vis_params_process = function(params) {
       union.list(
         private$.vis_params_default,
@@ -569,7 +569,7 @@ node <- R6::R6Class(
 
     validate = function(verbose = TRUE, verbose_prefix = "") {
       if (length(self$validators))
-        confront(self$validators, self$get())
+        validate::confront(self$get(), self$validators)
     },
 
     time_to_eval = function(what = getOption("RFLOW_TIME_TO_EVAL", "LAST")) {
